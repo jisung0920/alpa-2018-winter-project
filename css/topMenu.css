@@ -30,6 +30,7 @@ line-height: 30px;
 	
 }
 
+
 .menuLink, .submenuLink {
  	   -ms-user-select: none; 
    -moz-user-select: -moz-none;
@@ -52,6 +53,15 @@ text-decoration: none;
 	color: #58ACFA;
 	/*background-color: #4d4d4d;*/
 }
+
+.topMain {
+	background-color: #00000044;
+	text-align: right;
+	font-size: 20pt;
+	color: #58ACFA;
+	padding: 40px;	
+}
+
 
 .submenuLink {
 	color: white;
@@ -81,3 +91,9 @@ font-size: 13px;
 	text-decoration: none;
 	/*background-color: #dddddd;*/
 }
+
+.totalmenu {
+  	background-image: url("img/mainImg.png");
+
+}
+

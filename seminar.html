@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="The ALPA website's main pasge">
 	<meta name="author" content="alpa20161104@gmail.com">
-
+	
 
 	<!-- 구글 API 필수 // client id 바꿔주는게 좋을 것임.-->
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -29,15 +29,14 @@
 <body>
 
 	<header id="name">
-
+		
 		<img id="headImg" src="/css/img/headImg.png"> <!-- 아무거나 넣었음 -->
-		<h1><a id="Logo" href="index.html">ALPA</a></h1>
-
+		<h1><a id="Logo" href="index2.html">ALPA</a></h1>
 
 	</header>
 
-	<div id="mainWrapper">
-
+	<div id="menu">
+		<div class="totalmenu">
 		<nav id="topMenu">
 			<ul>
 				<li class="topMenuLi">
@@ -45,8 +44,8 @@
 					<ul class="submenu">
 						<li><a href="introduction.html" class="submenuLink">Introduction</a></li>
 						<li><a href="organization.html" class="submenuLink">Organization Chart</a></li>
-						<li><a href="introproject.html" class="submenuLink">Project</a></li>
-						<li><a href="https://goo.gl/forms/jqoQ3rOTxwnHBld73" class="submenuLink">Apply</a></li>
+						<li><a href="introproject.html" class="submenuLink">IntroProject</a></li>
+						<li><a href="apply.html" class="submenuLink">Apply</a></li>
 					</ul>
 				</li>
 				<li>|</li>
@@ -54,8 +53,8 @@
 					<a  class="menuLink">Notice</a>
 					<ul class="submenu">
 						<li><a href="notice.html" class="submenuLink">Notice</a></li>
-						<li><a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAbmpmZ1BmekV6RTg" class="submenuLink">Accounting</a></li>
-						<li><a href="supplies.html" class="submenuLink">Items</a></li>
+						<li><a href="capital.html" class="submenuLink">Capital</a></li>
+						<li><a href="supplies.html" class="submenuLink">Supplies</a></li>
 
 					</ul>
 				</li>
@@ -65,17 +64,17 @@
 					<ul class="submenu">
 						<li><a href="project.html" class="submenuLink">Project</a></li>
 						<li><a href="seminar.html" class="submenuLink">Seminar</a></li>
-						<li><a href="https://drive.google.com/drive/folders/0Bx-YhTmZR8KeVUZrT1NBUkZzdmM" class="submenuLink">Shared Folder</a></li>
+						<li><a href="sharedfolder.html" class="submenuLink">Shared Folder</a></li>
 					</ul>
 				</li>
 				<li>|</li>
 				<li class="topMenuLi">
 					<a  class="menuLink">Community</a>
 					<ul class="submenu">
-						<li><a href="community.php?field=0" class="submenuLink">Anonymous</a></li>
-						<li><a href="community.php?field=1" class="submenuLink">Suggestion</a></li>
-						<li><a href="community.php?field=2" class="submenuLink">Class Tip</a></li>
-						<li><a href="community.php?field=3" class="submenuLink">Recruitment</a></li>
+						<li><a href="anonymous.html" class="submenuLink">Anonymous</a></li>
+						<li><a href="suggestion.html" class="submenuLink">Suggestion</a></li>
+						<li><a href="classtip.html" class="submenuLink">Class Tip</a></li>
+						<li><a href="recruitment.html" class="submenuLink">Recruitment</a></li>
 					</ul>
 				</li>
 				<li>|</li>
@@ -84,25 +83,32 @@
 				</li>
 			</ul>
 		</nav>
-
-		<div id="gSignInWrapper">
-			<span class="lable">Sign in:</span>
-			<div id="customBtn" class="customGPlusSignIn">
-				<span class="icon"></span>
-				<span class="btnText">Google</span>
+		
+			<div class="topMain">
+				<ul>
+					<p>Seminar</p>
+				</ul>	
 			</div>
-		</div>
-		<script>startApp();</script>
-
+		</div>	
 		<div class="data">
-			<img id="pic" class="img-circle" width="100" håeight="100">
-
+			<img id="pic" class="img-circle" width="100" height="100">
+			
 			<p id="email" class="alert alert-danger"></p>
 			<button onclick="signOut()" class="btn btn-danger">SignOut</button>
 		</div>
 
 	</div>
+	
 
+	<div id="content">
+		<p>여기다가 추가 할거 하면 될것 같고</p>
+	</div>
+
+	<hr>
+	
+	<footer>
+		<p>여기다가 과사 전화번호 이런거 하면 될듯</p>
+	</footer>
 
 </body>
 </html>

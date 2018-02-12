@@ -7,6 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="The ALPA website's main pasge">
 	<meta name="author" content="alpa20161104@gmail.com">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 
 	<!-- 구글 API 필수 // client id 바꿔주는게 좋을 것임.-->
@@ -31,13 +32,12 @@
 	<header id="name">
 
 		<img id="headImg" src="/css/img/headImg.png"> <!-- 아무거나 넣었음 -->
-		<h1><a id="Logo" href="index.html">ALPA</a></h1>
-
+		<h1><a id="Logo" href="index2.html">ALPA</a></h1>
 
 	</header>
 
-	<div id="mainWrapper">
-
+	<div id="menu">
+		<div class="totalmenu">
 		<nav id="topMenu">
 			<ul>
 				<li class="topMenuLi">
@@ -45,8 +45,8 @@
 					<ul class="submenu">
 						<li><a href="introduction.html" class="submenuLink">Introduction</a></li>
 						<li><a href="organization.html" class="submenuLink">Organization Chart</a></li>
-						<li><a href="introproject.html" class="submenuLink">Project</a></li>
-						<li><a href="https://goo.gl/forms/jqoQ3rOTxwnHBld73" class="submenuLink">Apply</a></li>
+						<li><a href="introproject.html" class="submenuLink">IntroProject</a></li>
+						<li><a href="apply.html" class="submenuLink">Apply</a></li>
 					</ul>
 				</li>
 				<li>|</li>
@@ -54,8 +54,8 @@
 					<a  class="menuLink">Notice</a>
 					<ul class="submenu">
 						<li><a href="notice.html" class="submenuLink">Notice</a></li>
-						<li><a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAbmpmZ1BmekV6RTg" class="submenuLink">Accounting</a></li>
-						<li><a href="supplies.html" class="submenuLink">Items</a></li>
+						<li><a href="capital.html" class="submenuLink">Capital</a></li>
+						<li><a href="supplies.html" class="submenuLink">Supplies</a></li>
 
 					</ul>
 				</li>
@@ -65,17 +65,17 @@
 					<ul class="submenu">
 						<li><a href="project.html" class="submenuLink">Project</a></li>
 						<li><a href="seminar.html" class="submenuLink">Seminar</a></li>
-						<li><a href="https://drive.google.com/drive/folders/0Bx-YhTmZR8KeVUZrT1NBUkZzdmM" class="submenuLink">Shared Folder</a></li>
+						<li><a href="sharedfolder.html" class="submenuLink">Shared Folder</a></li>
 					</ul>
 				</li>
 				<li>|</li>
 				<li class="topMenuLi">
 					<a  class="menuLink">Community</a>
 					<ul class="submenu">
-						<li><a href="community.php?field=0" class="submenuLink">Anonymous</a></li>
-						<li><a href="community.php?field=1" class="submenuLink">Suggestion</a></li>
-						<li><a href="community.php?field=2" class="submenuLink">Class Tip</a></li>
-						<li><a href="community.php?field=3" class="submenuLink">Recruitment</a></li>
+						<li><a href="anonymous.php" class="submenuLink">Anonymous</a></li>
+						<li><a href="suggestion.php" class="submenuLink">Suggestion</a></li>
+						<li><a href="classtip.php" class="submenuLink">Class Tip</a></li>
+						<li><a href="recruitment.php" class="submenuLink">Recruitment</a></li>
 					</ul>
 				</li>
 				<li>|</li>
@@ -85,17 +85,16 @@
 			</ul>
 		</nav>
 
-		<div id="gSignInWrapper">
-			<span class="lable">Sign in:</span>
-			<div id="customBtn" class="customGPlusSignIn">
-				<span class="icon"></span>
-				<span class="btnText">Google</span>
+			<div class="topMain">
+				<ul>
+					<p>Class Tip</p>
+				</ul>
+
 			</div>
 		</div>
-		<script>startApp();</script>
 
 		<div class="data">
-			<img id="pic" class="img-circle" width="100" håeight="100">
+			<img id="pic" class="img-circle" width="100" height="100">
 
 			<p id="email" class="alert alert-danger"></p>
 			<button onclick="signOut()" class="btn btn-danger">SignOut</button>
@@ -103,6 +102,66 @@
 
 	</div>
 
+	<?php
+	$name = "alpaweb";
+
+	try{
+		$query = "select * from post where field = 2";
+		$db = new PDO("mysql:dbname=$name", "root","mysql1104");
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$rows = $db->query($query);
+
+		global $size, $post_num, $post_writer, $post_title, $post_date, $post_time, $post_hits;
+		$size=0;
+		foreach ($rows as $row) {
+			$size ++;
+			$post_num[] = $row['num'];
+			$post_writer[] = $row['writer'];
+			$post_title[] = $row['title'];
+			$post_date[] = $row['date'];
+			$post_time[] = $row['time'];
+			$post_hits[] = $row['hits'];
+		}
+
+	}catch(PDOException $ex){
+		echo "detail :".$ex->getMessage();
+	}
+
+	?>
+
+	<div class="community">
+		<table>
+			<tr>
+				<th>글번호</th>
+				<th>작성자</th>
+				<th>제목</th>
+				<th>게시날짜</th>
+				<th>게시시간</th>
+				<th>조회수</th>
+			</tr>
+
+			<?php
+				for($i=0; $i<$size; $i++){
+					?>
+					<tr>
+						<td><?=$i+1?></td>
+						<td><?=$post_writer[$i]?></td>
+						<td><?=$post_title[$i]?></td>
+						<td><?=$post_date[$i]?></td>
+						<td><?=$post_time[$i]?></td>
+						<td><?=$post_hits[$i]?></td>
+					</tr>
+					<?php
+				}
+			?>
+		</table>
+	</div>
+
+	<hr>
+
+	<footer>
+		<p>여기다가 과사 전화번호 이런거 하면 될듯</p>
+	</footer>
 
 </body>
 </html>
