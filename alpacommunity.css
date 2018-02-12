@@ -1,0 +1,30 @@
+body, html{
+  font-family: sans-serif;
+  font-size: 12pt;
+}
+.community h2{
+  text-align: center;
+  font-size: 17pt;
+}
+table{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  /* border-collapse: collapse; */
+}
+/* table tr th{
+  border: 2px solid black;
+} */
+.num{
+  width: 50px;
+}
+.writer{
+  width: 100px;
+}
+.title{
+  width: 400px;
+}
+.when{
+  width: 100px;
+}
