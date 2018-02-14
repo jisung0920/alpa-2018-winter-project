@@ -38,139 +38,69 @@
 
 
 	</header>
+	<div id="menu2">
+		<div class="totalmenu">
 
-	<div id="mainWrapper">
+			<nav id="topMenu">
+				<ul>
+					<li class="topMenuLi">
+						<a  class="menuLink">About us</a>
+						<ul class="submenu">
+							<li><a href="introduction.html" class="submenuLink">Introduction</a></li>
+							<li><a href="organization.html" class="submenuLink">Organization Chart</a></li>
+							<li><a href="introproject.html" class="submenuLink">Project</a></li>
+							<li><a href="https://goo.gl/forms/jqoQ3rOTxwnHBld73" class="submenuLink">Apply</a></li>
+						</ul>
+					</li>
+					<li>|</li>
+					<li class="topMenuLi">
+						<a  class="menuLink">Notice</a>
+						<ul class="submenu">
+							<li><a href="notice.html" class="submenuLink">Notice</a></li>
+							<li><a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAbmpmZ1BmekV6RTg" class="submenuLink">Accounting</a></li>
+							<li><a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAemRoTjdKWmNhNTQ" class="submenuLink">Items</a></li>
 
-		<nav id="topMenu">
-			<ul>
-				<li class="topMenuLi">
-					<a  class="menuLink">About us</a>
-					<ul class="submenu">
-						<li><a href="introduction.html" class="submenuLink">Introduction</a></li>
-						<li><a href="organization.html" class="submenuLink">Organization Chart</a></li>
-						<li><a href="introproject.html" class="submenuLink">Project</a></li>
-						<li><a href="https://goo.gl/forms/jqoQ3rOTxwnHBld73" class="submenuLink">Apply</a></li>
-					</ul>
-				</li>
-				<li>|</li>
-				<li class="topMenuLi">
-					<a  class="menuLink">Notice</a>
-					<ul class="submenu">
-						<li><a href="notice.html" class="submenuLink">Notice</a></li>
-						<li><a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAbmpmZ1BmekV6RTg" class="submenuLink">Accounting</a></li>
-						<li><a href="supplies.html" class="submenuLink">Items</a></li>
+						</ul>
+					</li>
+					<li>|</li>
+					<li class="topMenuLi">
+						<a  class="menuLink">Reference</a>
+						<ul class="submenu">
+							<li><a href="project.html" class="submenuLink">Project</a></li>
+							<li><a href="seminar.html" class="submenuLink">Seminar</a></li>
+							<li><a href="https://drive.google.com/drive/folders/0Bx-YhTmZR8KeVUZrT1NBUkZzdmM" class="submenuLink">Shared Folder</a></li>
+						</ul>
+					</li>
+					<li>|</li>
+					<li class="topMenuLi">
+						<a  class="menuLink">Community</a>
+						<ul class="submenu">
+							<li><a href="community.php?field=0" class="submenuLink">Anonymous</a></li>
+							<li><a href="community.php?field=1" class="submenuLink">Suggestion</a></li>
+							<li><a href="community.php?field=2" class="submenuLink">Class Tip</a></li>
+							<li><a href="community.php?field=3" class="submenuLink">Recruitment</a></li>
+						</ul>
+					</li>
+					<li>|</li>
+					<li class="topMenuLi">
+						<a href="gallery.html" class="menuLink">Gallery</a>
+					</li>
+				</ul>
+			</nav>
 
-					</ul>
-				</li>
-				<li>|</li>
-				<li class="topMenuLi">
-					<a  class="menuLink">Reference</a>
-					<ul class="submenu">
-						<li><a href="project.html" class="submenuLink">Project</a></li>
-						<li><a href="seminar.html" class="submenuLink">Seminar</a></li>
-						<li><a href="https://drive.google.com/drive/folders/0Bx-YhTmZR8KeVUZrT1NBUkZzdmM" class="submenuLink">Shared Folder</a></li>
-					</ul>
-				</li>
-				<li>|</li>
-				<li class="topMenuLi">
-					<a  class="menuLink">Community</a>
-					<ul class="submenu">
-						<li><a href="anonymous.php" class="submenuLink">Anonymous</a></li>
-						<li><a href="suggestion.php" class="submenuLink">Suggestion</a></li>
-						<li><a href="classtip.php" class="submenuLink">Class Tip</a></li>
-						<li><a href="recruitment.php" class="submenuLink">Recruitment</a></li>
-					</ul>
-				</li>
-				<li>|</li>
-				<li class="topMenuLi">
-					<a href="gallery.html" class="menuLink">Gallery</a>
-				</li>
-			</ul>
-		</nav>
+			<div class="topMain">
+				<ul>
+					<p>Gallery</p>
+				</ul>
+			</div>
 
-
-
+		</div>
 
 		<div id="content">
 			<div id="instaPics"></div>
-			<style type="text/css">
-				#instaPics {
-					 max-width: 320px;
-					 overflow: hidden;
-				}
-				.insta-box {
-					 position: relative;
-					 width: 120px;
-					 height: 120px;
-					 float: left;
-					 margin: 4px;
-					 border: 1px solid #ddd;
-				}
-				.image-layer {
-					 overflow: hidden;
-					 width: 100%;
-					 height: 100%;
-				}
-				.image-layer img {
-					 max-width: 100%;
-				}
-				.caption-layer {
-					 display: none;
-					 position: absolute;
-					 top: 0;
-					 background: rgba(255,255,255,0.8);
-					 height: 100%;
-					 width: 100%;
-					 padding: 10px;
-					 box-sizing: border-box;
-					 font-size: 10px;
-					 color: #333;
-				}
-				.insta-likes {
-					 float: right;
-				}
-				</style>
-				<script type="text/javascript">
-					jQuery(function($) {
-						 var tocken = "4701109934.4a801b7.aedb336feda24fa291b5663c99d9cfef"; /* Access Tocken 입력 */
-						 var count = "10";  // 사진 몇개 가져올건지 정하면 될 듯
-						 $.ajax({
-							 type: "GET",
-							 dataType: "jsonp",
-							 cache: false,
-							 url: "https://api.instagram.com/v1/users/self/media/recent/?access_token=" + tocken + "&count=" + count,
-							 success: function(response) { // 인스타에서 값 받아와서 html태그 생성해서 붙이기
-							  if ( response.data.length > 0 ) {
-								   for(var i = 0; i < response.data.length; i++) {
-										var insta = '<div class="insta-box">';
-										insta += "<a target='_blank' href='" + response.data[i].link + "'>";
-										insta += "<div class'image-layer'>";
-										//insta += "<img src='" + response.data[i].images.thumbnail.url + "'>";
-										insta += '<img src="' + response.data[i].images.thumbnail.url + '">';
-										insta += "</div>";
-										//console.log(response.data[i].caption.text);
-										if ( response.data[i].caption !== null ) {
-											 insta += "<div class='caption-layer'>";
-											 if ( response.data[i].caption.text.length > 0 ) {
-												  insta += "<p class='insta-caption'>" + response.data[i].caption.text + "</p>"
-											 }
-											 insta += "<span class='insta-likes'>" + response.data[i].likes.count + " Likes</span>";
-											 insta += "</div>";
-										}
-										insta += "</a>";
-										insta += "</div>";
-										$("#instaPics").append(insta);
-								   }
-							  }
-							  $(".insta-box").hover(function(){   // 마우스 오버 했을때 이벤트
-								   $(this).find(".caption-layer").css({"backbround" : "rgba(255,255,255,0.7)", "display":"block"});
-							  }, function(){
-								   $(this).find(".caption-layer").css({"display":"none"});
-							  });
-							 }
-							});
-					});
-					</script>
+			<script src="/js/gallery.js"></script>
+			<link rel="stylesheet" type="text/css" href="/css/gallery.css">
+
 
 </body>
 

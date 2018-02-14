@@ -1,0 +1,36 @@
+#instaPics {
+    max-width: 100%;
+    overflow: hidden;
+}
+.insta-box {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    float: left;
+    margin: 4px;
+    border: 1px solid #ddd;
+}
+.image-layer {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.image-layer img {
+    object-fit: cover;
+    width: 100%;
+}
+.caption-layer {
+    display: none;
+    position: absolute;
+    top: 0;
+    background: rgba(255,255,255,0.8);
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 10px;
+    color: #333;
+}
+.insta-likes {
+    float: right;
+}
