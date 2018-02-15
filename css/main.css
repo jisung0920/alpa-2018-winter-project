@@ -1,5 +1,9 @@
+/*@font-face {
+	font-family: noto;
+	src: url(fonts/NotoSans-Regular.ttf) format('truetype');
+}*/
 body {
-
+/*font-family: noto;*/
 }
 
 
@@ -22,6 +26,7 @@ body {
 	margin-top: 15px;
 	margin-bottom: 15px;
 	padding: 0px;
+	/*font-family: noto;*/
 }
 
 #mainWrapper {
@@ -39,7 +44,6 @@ background-size: cover;
 }
 
 #menu {
-
 height: 650px;
 	background-repeat: no-repeat;
 -webkit-background-size: cover;
