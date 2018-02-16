@@ -34,8 +34,8 @@
 	<header id="name">
 
 		<img id="headImg" src="/css/img/headImg.png"> <!-- 아무거나 넣었음 -->
-		<h1><a id="Logo" href="index2.html">ALPA</a></h1>
 
+		<h1><a id="Logo" href="index.html">ALPA</a></h1>
 	</header>
 
 	<div id="menu2">

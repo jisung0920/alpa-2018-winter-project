@@ -98,11 +98,7 @@
 
 	</div>
 
-<video id="videoSet" src="css/video/test.mp4" poster="css/img/headImg.png" controls muted preload = "auto">
 <!--  video example code   src is video link, poster is img link -->
-
-</video>
-
 
   <?php
   $name = "alpaweb";
@@ -124,11 +120,13 @@
 
 
     $size=0;
-    global $size, $post_name, $post_date, $post_content, $post_category, $post_term, $post_language, $post_contributer;
+    global $size, $post_name, $post_date, $post_content, $post_category, $post_term, $post_language, $post_contributer,$post_video,$post_img;
     foreach ($rows as $row) {
       $size ++;
       $post_name[] = $row['name'];
       $post_date[] = $row['date'];
+      $post_video[] = $row['videolink'];
+      $post_img[] = $row['imagelink'];
       $post_content[] = $row['content'];
       $post_category[] = $row['category'];
       $post_term[] = $row['term'];
@@ -160,8 +158,11 @@
                 ?>
                 <tr>
                   <td><?=$i+1?></td>
-
-                  <td><?=$post_date[$i]?></td>
+                  <td>
+                    <video id="videoSet" src="css/video/<?=$post_video[$i]?>"
+                      poster="css/img/<?=$post_img[$i]?>" controls muted preload = "auto">
+                    </video>
+                  </td>
                   <td><?=$post_name[$i]?></td>
                   <td><?=$post_contributer[$i]?></td>
                   <td><?=$post_term[$i]?></td>
