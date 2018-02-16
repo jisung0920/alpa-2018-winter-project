@@ -40,52 +40,52 @@
 
 	<div id="menu2">
 		<div class="totalmenu">
-		<nav id="topMenu">
-			<ul>
-				<li class="topMenuLi">
-					<a  class="menuLink">About us</a>
-					<ul class="submenu">
-						<li><a href="introduction.html" class="submenuLink">Introduction</a></li>
-						<li><a href="organization.html" class="submenuLink">Organization Chart</a></li>
-						<li><a href="introproject.html" class="submenuLink">IntroProject</a></li>
-						<li><a href="apply.html" class="submenuLink">Apply</a></li>
-					</ul>
-				</li>
-				<li>|</li>
-				<li class="topMenuLi">
-					<a  class="menuLink">Notice</a>
-					<ul class="submenu">
-						<li><a href="notice.html" class="submenuLink">Notice</a></li>
-						<li><a href="capital.html" class="submenuLink">Capital</a></li>
-						<li><a href="supplies.html" class="submenuLink">Supplies</a></li>
+			<nav id="topMenu">
+				<ul>
+					<li class="topMenuLi">
+						<a  class="menuLink">About us</a>
+						<ul class="submenu">
+							<li><a href="introduction.html" class="submenuLink">Introduction</a></li>
+							<li><a href="organization.html" class="submenuLink">Organization Chart</a></li>
+							<li><a href="introproject.php" class="submenuLink">Project</a></li>
+							<li><a href="https://goo.gl/forms/jqoQ3rOTxwnHBld73" class="submenuLink">Apply</a></li>
+						</ul>
+					</li>
+					<li>|</li>
+					<li class="topMenuLi">
+						<a  class="menuLink">Notice</a>
+						<ul class="submenu">
+							<li><a href="notice.html" class="submenuLink">Notice</a></li>
+							<li><a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAbmpmZ1BmekV6RTg" class="submenuLink">Accounting</a></li>
+							<li><a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAemRoTjdKWmNhNTQ" class="submenuLink">Items</a></li>
 
-					</ul>
-				</li>
-				<li>|</li>
-				<li class="topMenuLi">
-					<a  class="menuLink">Reference</a>
-					<ul class="submenu">
-						<li><a href="project.html" class="submenuLink">Project</a></li>
-						<li><a href="seminar.html" class="submenuLink">Seminar</a></li>
-						<li><a href="sharedfolder.html" class="submenuLink">Shared Folder</a></li>
-					</ul>
-				</li>
-				<li>|</li>
-				<li class="topMenuLi">
-					<a  class="menuLink">Community</a>
-					<ul class="submenu">
-						<li><a href="community.php?field=0" class="submenuLink">Anonymous</a></li>
-						<li><a href="community.php?field=1" class="submenuLink">Suggestion</a></li>
-						<li><a href="community.php?field=2" class="submenuLink">Class Tip</a></li>
-						<li><a href="community.php?field=3" class="submenuLink">Recruitment</a></li>
-					</ul>
-				</li>
-				<li>|</li>
-				<li class="topMenuLi">
-					<a href="gallery.html" class="menuLink">Gallery</a>
-				</li>
-			</ul>
-		</nav>
+						</ul>
+					</li>
+					<li>|</li>
+					<li class="topMenuLi">
+						<a  class="menuLink">Reference</a>
+						<ul class="submenu">
+							<li><a href="project.html" class="submenuLink">Project</a></li>
+							<li><a href="seminar.html" class="submenuLink">Seminar</a></li>
+							<li><a href="https://drive.google.com/drive/folders/0Bx-YhTmZR8KeVUZrT1NBUkZzdmM" class="submenuLink">Shared Folder</a></li>
+						</ul>
+					</li>
+					<li>|</li>
+					<li class="topMenuLi">
+						<a  class="menuLink">Community</a>
+						<ul class="submenu">
+							<li><a href="community.php?field=0" class="submenuLink">Anonymous</a></li>
+							<li><a href="community.php?field=1" class="submenuLink">Suggestion</a></li>
+							<li><a href="community.php?field=2" class="submenuLink">Class Tip</a></li>
+							<li><a href="community.php?field=3" class="submenuLink">Recruitment</a></li>
+						</ul>
+					</li>
+					<li>|</li>
+					<li class="topMenuLi">
+						<a href="gallery.html" class="menuLink">Gallery</a>
+					</li>
+				</ul>
+			</nav>
 		<?php $field_num = $_GET["field"];
 
 		$field_name;
@@ -123,7 +123,13 @@
 
 	try{
 		$query = "select * from post where field = $field_num";
-		$db = new PDO("mysql:dbname=$name", "root","mysql1104");
+		$set1 = "set session character_set_connection=utf8";
+    $set2 = "set session character_set_results=utf8";
+    $set3 = "set session character_set_client=utf8";
+    $db = new PDO("mysql:dbname=$name", "root","mysql1104");
+    $db->query($set1);
+    $db->query($set2);
+    $db->query($set3);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$rows = $db->query($query);
 
