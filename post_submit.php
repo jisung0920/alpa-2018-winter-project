@@ -29,7 +29,6 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js" type="text/javascript"></script>
 	<script src="community.js" type="text/javascript"></script>
 
-
 	<style>
 		tr th{
 			text-align: center;
@@ -39,7 +38,6 @@
 			border: 2px solid black;
 		}
 	</style>
-
 </head>
 <body>
 
@@ -113,7 +111,6 @@
 			$field_name ="Recruitment";
 		}
 
-
 		$read_post = $_GET["postnum"];
 
 		?>
@@ -134,113 +131,41 @@
 
 	</div>
 
-	<?php
-	$name = "alpaweb";
+  <?php
+  $name = "alpaweb";
 
-	try{
-		$query = "select * from post where field = $field_num";
-		$set1 = "set session character_set_connection=utf8";
-    $set2 = "set session character_set_results=utf8";
-    $set3 = "set session character_set_client=utf8";
-    $db = new PDO("mysql:dbname=$name", "root","mysql1104");
-    $db->query($set1);
-    $db->query($set2);
-    $db->query($set3);
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$rows = $db->query($query);
-
-		global $size, $post_num, $post_writer, $post_title, $post_date, $post_time, $post_hits;
-		$size=0;
-		foreach ($rows as $row) {
-			$size ++;
-			$post_num[] = $row['num'];
-			$post_writer[] = $row['writer'];
-			$post_title[] = $row['title'];
-			$post_date[] = $row['date'];
-			$post_time[] = $row['time'];
-			$post_hits[] = $row['hits'];
+  try{
+    if (!isset($_POST["title"]) || !isset($_POST["content"]) ){
+			header("글 작성에 실패하였습니다.");
+		    die("제목이나 글 내용을 반드시 입력해주세요.");
 		}
+    else{
+      $title = $_POST["title"];
+  		$content = $_POST["content"];
 
-	}catch(PDOException $ex){
-		echo "detail :".$ex->getMessage();
-	}
+      $query_insert = "insert into post(title, content, writer, date, time, hits, field) values ('$title', '$content', 'geulims@gmail.com', curdate(), curtime(), 0, $field_num)";
+      $set1 = "set session character_set_connection=utf8";
+      $set2 = "set session character_set_results=utf8";
+      $set3 = "set session character_set_client=utf8";
+      $db = new PDO("mysql:dbname=$name", "root","mysql1104");
+      $db->query($set1);
+      $db->query($set2);
+      $db->query($set3);
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $db->query($query_insert);
+    }
+  }catch(PDOException $ex){
+    echo "detail :".$ex->getMessage();
+  }
 
-	?>
-
-	<div class="community">
-		<table id="community_table">
-			<tr>
-				<th>글번호</th>
-
-				<th><?php if($field_num !== 0){ print "작성자"; } ?></th>
-
-				<th>제목</th>
-				<th>게시날짜</th>
-				<th>게시시간</th>
-				<th>조회수</th>
-
-				<th>글보기</th>
-			</tr>
-
-			<?php
-				for($i=$size-1; $i>=0; $i--){
-					?>
-					<tr>
-						<td><?=$i+1?></td>
-						<td><?php if($field_num !== 0){ print $post_writer[$i]; } ?></td>
-						<td><?=$post_title[$i]?></td>
-						<td><?=$post_date[$i]?></td>
-						<td><?=$post_time[$i]?></td>
-						<td><?=$post_hits[$i]?></td>
-						<?php $primary_num = $post_num[$i]; ?>
-						<td><input type="button" value="클릭" onClick="self.location='community.php?field=<?=$field_num?>&postnum=<?=$primary_num?>';"></td>
-
-					</tr>
-					<?php
-				}
-			?>
-		</table>
+  ?>
+  <div>
+		제목 : <?= $title ?><br />
+		내용 : <?= $content ?><br />
+		작성자 : <br />
 	</div>
-	<?php
-		if(isset($read_post)){
-			try{
-				$read_query = "select title, content, writer, date, time, hits from post where num = $read_post and field = $field_num";
-				$read_rows = $db->query($read_query);
-
-				global $read_title, $read_content, $read_writer, $read_date, $read_time, $read_hits;
-				$size=0;
-				foreach ($read_rows as $row) {
-					$read_title = $row['title'];
-					$read_content = $row['content'];
-					$read_writer = $row['writer'];
-					$read_date = $row['date'];
-					$read_time = $row['time'];
-					$read_hits = $row['hits'];
-				}
-			}catch(PDOException $ex){
-				echo "detail :".$ex->getMessage();
-			}
-		}
-
-	?>
-
-	<div class="read_post">
-		제목 : <?= $read_title?><br />
-		내용 : <?= $read_content?><br />
-		작성자 : <?= $read_writer?><br />
-		작성날짜 : <?= $read_date?><br />
-		작성시간 : <?= $read_time?><br />
-		조회수 : <?= $read_hits ?><br />
-	</div>
-
-	<div class="posting">
-	  <form action="post_submit.php?field=<?=$field_num?>" method="post">
-	    <label>제목</label><input type="text" name="title"><br />
-	    <textarea name="content" rows="8" cols="80">여기에 글을 입력하세요.</textarea>
-	    <input type="submit" name="submit" value="글쓰기">
-	  </form>
-
-	</div>
-
+  <input type="button" value="글 목록" onClick="self.location='community.php?field=<?=$field_num?>';">
+  <input type="button" value="수정">
+  <input type="button" value="삭제">
 </body>
 </html>
