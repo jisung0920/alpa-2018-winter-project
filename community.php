@@ -29,6 +29,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js" type="text/javascript"></script>
 	<script src="community.js" type="text/javascript"></script>
 
+
 	<style>
 		tr th{
 			text-align: center;
@@ -38,6 +39,7 @@
 			border: 2px solid black;
 		}
 	</style>
+
 </head>
 <body>
 
@@ -111,6 +113,7 @@
 			$field_name ="Recruitment";
 		}
 
+
 		$read_post = $_GET["postnum"];
 
 		?>
@@ -168,11 +171,14 @@
 		<table id="community_table">
 			<tr>
 				<th>글번호</th>
+
 				<th><?php if($field_num !== 0){ print "작성자"; } ?></th>
+
 				<th>제목</th>
 				<th>게시날짜</th>
 				<th>게시시간</th>
 				<th>조회수</th>
+
 				<th>글보기</th>
 			</tr>
 
@@ -188,6 +194,7 @@
 						<td><?=$post_hits[$i]?></td>
 						<?php $primary_num = $post_num[$i]; ?>
 						<td><input type="button" value="클릭" onClick="self.location='community.php?field=<?=$field_num?>&postnum=<?=$primary_num?>';"></td>
+
 					</tr>
 					<?php
 				}
@@ -232,6 +239,7 @@
 	    <textarea name="content" rows="8" cols="80">여기에 글을 입력하세요.</textarea>
 	    <input type="submit" name="submit" value="글쓰기">
 	  </form>
+
 	</div>
 
 </body>
