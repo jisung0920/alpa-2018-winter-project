@@ -105,7 +105,7 @@
 
   try{
 
-    $query = "select * from projectlist";
+    $query = "select * from notice";
     $set1 = "set session character_set_connection=utf8";
     $set2 = "set session character_set_results=utf8";
     $set3 = "set session character_set_client=utf8";
@@ -118,21 +118,16 @@
 
     $rows = $db->query($query);
 
+        $size=0;
 
-    $size=0;
-    global $size, $post_name, $post_date, $post_content, $post_category, $post_term, $post_language, $post_contributer,$post_video,$post_img;
-    foreach ($rows as $row) {
+    global $size, $noti_name, $noti_date, $noti_num,$noti_hits;
+  foreach ($rows as $row) {
       $size ++;
-      $post_name[] = $row['name'];
-      $post_date[] = $row['date'];
-      $post_video[] = $row['videolink'];
-      $post_img[] = $row['imagelink'];
-      $post_content[] = $row['content'];
-      $post_category[] = $row['category'];
-      $post_term[] = $row['term'];
-      $post_language[] = $row['language'];
-      $post_contributer[] = $row['contributer'];
-    }
+      $noti_name[] = $row['name'];
+      $noti_date[] = $row['date'];
+      $noti_num[] = $row['num'];
+      $noti_hits[] = $row['hits'];
+}
 
   }catch(PDOException $ex){
     echo "detail :".$ex->getMessage();
@@ -144,47 +139,25 @@
     <table>
       <tr>
         <th>번호</th>
-        <th>날짜</th>
         <th>제목</th>
-        <th>참여자</th>
-        <th>기간</th>
-        <th>사용언어</th>
-        <th>분야</th>
-        <th>내용</th>
+        <th>작성일</th>
+        <th>조회</th>
       </tr>
 
-            <?php
-              for($i=0; $i<$size; $i++){
-                ?>
-                <tr>
-                  <td><?=$i+1?></td>
-                  <td id="frameSet">
-                    <?php
-                    $comp = "null";
-                    if($post_video[$i] == $comp){?>
-  <img id="imgSet" src="css/img/<?=$post_img[$i]?>">
+      <?php
+        for($i=0; $i<$size; $i++){
+          ?>
+          <tr>
+            <td><?=$noti_num[$i]?></td>
+            <td><?=$noti_name[$i]?></td>
+            <td><?=$noti_date[$i]?></td>
+            <td><?=$noti_hits[$i]?></td>
+          </tr>
+          <?php
+        }
+      ?>
 
-                    <?php } ?>
 
-                    <?php
-                    $comp = "null";
-                    if($post_video[$i] != $comp){?>
-
-                                          <video id="videoSet" src="css/video/<?=$post_video[$i]?>"
-                                            poster="css/img/<?=$post_img[$i]?>" controls muted preload = "auto">
-                                          </video>
-                    <?php } ?>
-                  </td>
-                  <td><?=$post_name[$i]?></td>
-                  <td><?=$post_contributer[$i]?></td>
-                  <td><?=$post_term[$i]?></td>
-                  <td><?=$post_language[$i]?></td>
-                  <td><?=$post_category[$i]?></td>
-                  <td><?=$post_content[$i]?></td>
-                </tr>
-                <?php
-              }
-            ?>
     </table>
   </div>
 

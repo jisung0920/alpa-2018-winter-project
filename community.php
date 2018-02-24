@@ -68,7 +68,7 @@
 					<li class="topMenuLi">
 						<a  class="menuLink">Notice</a>
 						<ul class="submenu">
-							<li><a href="notice.html" class="submenuLink">Notice</a></li>
+							<li><a href="notice.php" class="submenuLink">Notice</a></li>
 							<li><a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAbmpmZ1BmekV6RTg" class="submenuLink">Accounting</a></li>
 							<li><a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAemRoTjdKWmNhNTQ" class="submenuLink">Items</a></li>
 
