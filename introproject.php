@@ -124,14 +124,11 @@
     foreach ($rows as $row) {
       $size ++;
       $post_name[] = $row['name'];
-      $post_date[] = $row['date'];
       $post_video[] = $row['videolink'];
       $post_img[] = $row['imagelink'];
       $post_content[] = $row['content'];
       $post_category[] = $row['category'];
-      $post_term[] = $row['term'];
       $post_language[] = $row['language'];
-      $post_contributer[] = $row['contributer'];
     }
 
   }catch(PDOException $ex){
@@ -141,51 +138,66 @@
   ?>
 
   <div>
-    <table>
-      <tr>
-        <th>번호</th>
-        <th>날짜</th>
-        <th>제목</th>
-        <th>참여자</th>
-        <th>기간</th>
-        <th>사용언어</th>
-        <th>분야</th>
-        <th>내용</th>
-      </tr>
+
+
+			<style>
+
+			</style>
+
+<ul class="card">
 
             <?php
               for($i=0; $i<$size; $i++){
                 ?>
-                <tr>
-                  <td><?=$i+1?></td>
-                  <td id="frameSet">
-                    <?php
+
+							<li class="item">
+		<div class="demo-card-square mdl-card mdl-shadow--2dp">
+			<div class="mdl-card__title mdl-card--expand">
+										<h2 class="mdl-card__title-text" ><?=$post_name[$i]?></h2>
+
+									  <?php
                     $comp = "null";
                     if($post_video[$i] == $comp){?>
-  <img id="imgSet" src="css/img/<?=$post_img[$i]?>">
-
+											<video id="videoSet"
+															poster="css/img/<?=$post_img[$i]?>" >
+											</video>
                     <?php } ?>
 
                     <?php
                     $comp = "null";
                     if($post_video[$i] != $comp){?>
-
-                                          <video id="videoSet" src="css/video/<?=$post_video[$i]?>"
-                                            poster="css/img/<?=$post_img[$i]?>" controls muted preload = "auto">
-                                          </video>
+                        <video id="videoSet" src="css/video/<?=$post_video[$i]?>"
+                                poster="css/img/<?=$post_img[$i]?>" controls muted preload = "auto">
+                        </video>
                     <?php } ?>
-                  </td>
-                  <td><?=$post_name[$i]?></td>
-                  <td><?=$post_contributer[$i]?></td>
-                  <td><?=$post_term[$i]?></td>
-                  <td><?=$post_language[$i]?></td>
-                  <td><?=$post_category[$i]?></td>
-                  <td><?=$post_content[$i]?></td>
-                </tr>
+
+
+			</div>
+									<div class="mdl-card__supporting-text">
+										<?=$post_content[$i]?>
+									</div>
+
+									<div class="mdl-card__actions mdl-card--border">
+										<div class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" >
+											<br></br>
+											<p id="text">사용언어</p>
+											<p id="text"><?=$post_language[$i]?></p>
+											<p id="text">구분</p>
+											<p id="text"><?=$post_category[$i]?></p>
+										</div>
+
+													</div>
+												</div>
+											</li>
                 <?php
               }
             ?>
-    </table>
+
+
+
+
+</ul>
+
   </div>
 
 

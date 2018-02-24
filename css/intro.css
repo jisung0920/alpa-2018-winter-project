@@ -3,16 +3,27 @@
   height:120px;
 }
 #videoSet{
-  background-color:#EFFBF8;
-   width:280px;
-   height:280px;
-   padding:20px;
+   width:320px;
+   height:180px;
 }
 #imgSet{
-  background-color:#EFF8FB;
-
-  padding: 20px;
-  width: 280px;
-  height: 280px;
+padding: 10px;
+  width: 320px;
+  height: 160px;
 }
-/*center */
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 420px;
+
+    box-shadow: 0.5px  0.5px 0.5px 0.5px #666;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  padding-top: 0.5px;
+  text-align: center;
+  background:top right 5% no-repeat #585858;
+}
+.mdl-card__supporting-text { text-align: center; font-size: 15px; font-size: bold; margin-top: 5px;}
+.card { overflow: hidden;  list-style-type: none;}
+.item { float: left; margin: 20px; width: calc(45% - 20px); background: #fff; }
+#text {font-size: 12px; text-align: center;}
