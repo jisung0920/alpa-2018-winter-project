@@ -158,10 +158,22 @@
                 ?>
                 <tr>
                   <td><?=$i+1?></td>
-                  <td>
-                    <video id="videoSet" src="css/video/<?=$post_video[$i]?>"
-                      poster="css/img/<?=$post_img[$i]?>" controls muted preload = "auto">
-                    </video>
+                  <td id="frameSet">
+                    <?php
+                    $comp = "null";
+                    if($post_video[$i] == $comp){?>
+  <img id="imgSet" src="css/img/<?=$post_img[$i]?>">
+
+                    <?php } ?>
+
+                    <?php
+                    $comp = "null";
+                    if($post_video[$i] != $comp){?>
+
+                                          <video id="videoSet" src="css/video/<?=$post_video[$i]?>"
+                                            poster="css/img/<?=$post_img[$i]?>" controls muted preload = "auto">
+                                          </video>
+                    <?php } ?>
                   </td>
                   <td><?=$post_name[$i]?></td>
                   <td><?=$post_contributer[$i]?></td>
