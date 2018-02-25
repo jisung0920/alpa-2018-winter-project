@@ -101,6 +101,9 @@
 <!--  video example code   src is video link, poster is img link -->
 
   <?php
+
+    $read_post = $_GET["postnum"];
+    $read_post--;
   $name = "alpaweb";
 
   try{
@@ -120,13 +123,14 @@
 
         $size=0;
 
-    global $size, $noti_name, $noti_date, $noti_num,$noti_hits;
+    global $size, $noti_name, $noti_date, $noti_num,$noti_hits,$noti_con;
   foreach ($rows as $row) {
       $size ++;
       $noti_name[] = $row['name'];
       $noti_date[] = $row['date'];
       $noti_num[] = $row['num'];
       $noti_hits[] = $row['hits'];
+      $noti_con[] = $row['content'];
 }
 
   }catch(PDOException $ex){
@@ -156,7 +160,7 @@
           ?>
           <tr>
             <td><?=$noti_num[$i]?></td>
-            <td><?=$noti_name[$i]?></td>
+            <td><a href="notice.php?postnum=<?=$noti_num[$i]?>"><?=$noti_name[$i]?></a></td>
             <td><?=$noti_date[$i]?></td>
             <td><?=$noti_hits[$i]?></td>
           </tr>
@@ -168,7 +172,25 @@
     </table>
   </div>
 
+
+
+
 <div class="content_space">
+<table class="table_notice">
+	<tr>
+		<th class="notice_row">Title</th>
+		<td class="notice_cotent"><?=$noti_name[$read_post]?></td>
+
+	</tr>
+	<tr>
+		<th class="notice_row">Date</th>
+		<td class="notice_cotent"><?=$noti_date[$read_post]?></td>
+	</tr>
+	<tr>
+		<th class="notice_row">Contexts</th>
+		<td class="notice_cotent"><?=$noti_con[$read_post]?></td>
+	</tr>
+</table>
 </div>
 </div>
 </body>
