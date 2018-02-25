@@ -155,24 +155,23 @@
 			<div class="mdl-card__title mdl-card--expand">
 										<h2 class="mdl-card__title-text" ><?=$post_name[$i]?></h2>
 
-									  <?php
-                    $comp = "null";
-                    if($post_video[$i] == $comp){?>
-											<video id="videoSet"
-															poster="css/img/<?=$post_img[$i]?>" >
-											</video>
-                    <?php } ?>
-
-                    <?php
-                    $comp = "null";
-                    if($post_video[$i] != $comp){?>
-                        <video id="videoSet" src="css/video/<?=$post_video[$i]?>"
-                                poster="css/img/<?=$post_img[$i]?>" controls muted preload = "auto">
-                        </video>
-                    <?php } ?>
-
 
 			</div>
+			<?php
+			$comp = "null";
+			if($post_video[$i] == $comp){?>
+				<video id="videoSet"
+								poster="css/img/<?=$post_img[$i]?>" >
+				</video>
+			<?php } ?>
+
+			<?php
+			$comp = "null";
+			if($post_video[$i] != $comp){?>
+					<video id="videoSet" src="css/video/<?=$post_video[$i]?>"
+									poster="css/img/<?=$post_img[$i]?>" controls muted preload = "auto">
+					</video>
+			<?php } ?>
 									<div class="mdl-card__supporting-text">
 										<?=$post_content[$i]?>
 									</div>
@@ -186,7 +185,7 @@
 											<p id="con_text"><?=$post_category[$i]?></p>
 										</div>
 
-													</div>
+										</div>
 												</div>
 											</li>
                 <?php
