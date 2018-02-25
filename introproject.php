@@ -180,10 +180,10 @@
 									<div class="mdl-card__actions mdl-card--border">
 										<div class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" >
 											<br></br>
-											<p id="text">사용언어</p>
-											<p id="text"><?=$post_language[$i]?></p>
+											<p id="text">언어</p>
+											<p id="con_text"><?=$post_language[$i]?></p>
 											<p id="text">구분</p>
-											<p id="text"><?=$post_category[$i]?></p>
+											<p id="con_text"><?=$post_category[$i]?></p>
 										</div>
 
 													</div>

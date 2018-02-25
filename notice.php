@@ -17,7 +17,7 @@
 	<script src="https://apis.google.com/js/api:client.js"></script>
 	<script src="/js/gLogin.js"></script>
 
-
+	<link rel="stylesheet" type="text/css" href="/css/notice.css">
 	<link rel="stylesheet" type="text/css" href="/css/topMenu.css">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
   <link rel="stylesheet" type="text/css" href="/css/GLogin.css">
@@ -134,9 +134,16 @@
   }
 
   ?>
-
-  <div>
-    <table>
+	<div class="main_space">
+  <div class="list_space">
+    <table cellspacing="0" border="1" class="tbl_type">
+      <colgroup>
+<col width="5%"/>
+<col width="65%"/>
+<col width="20%"/>
+<col width="10%"/>
+</colgroup>
+<thead>
       <tr>
         <th>번호</th>
         <th>제목</th>
@@ -161,6 +168,8 @@
     </table>
   </div>
 
-
+<div class="content_space">
+</div>
+</div>
 </body>
 </html>
