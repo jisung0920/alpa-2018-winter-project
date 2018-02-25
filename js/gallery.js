@@ -1,4 +1,17 @@
 jQuery(function($) {
+
+
+    var user = firebase.auth().currentUser;
+
+if (user) {
+    console.log(user);
+    
+  // User is signed in.
+} else {
+    console.log('...');
+    
+  // No user is signed in.
+}
     var tocken = "4701109934.4a801b7.aedb336feda24fa291b5663c99d9cfef"; /* Access Tocken 입력 */
     var count = "all";  // 사진 몇개 가져올건지 정하면 될 듯
     $.ajax({

@@ -9,7 +9,20 @@
 	<meta name="description" content="The ALPA website's main pasge">
 	<meta name="author" content="alpa20161104@gmail.com">
 
-
+	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyBWvRG_66XFJGwLXUKhTkVIlLr_GU3bTfI",
+			authDomain: "alpawebapplication.firebaseapp.com",
+			databaseURL: "https://alpawebapplication.firebaseio.com",
+			projectId: "alpawebapplication",
+			storageBucket: "",
+			messagingSenderId: "275450919441"
+		};
+		firebase.initializeApp(config);
+	</script>
+		<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
 	<!-- 구글 API 필수 // client id 바꿔주는게 좋을 것임.-->
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
