@@ -52,7 +52,7 @@
   				<li class="topMenuLi">
   					<a  class="menuLink">Notice</a>
   					<ul class="submenu">
-  						<li><a href="notice.html" class="submenuLink">Notice</a></li>
+  						<li><a href="notice.php" class="submenuLink">Notice</a></li>
   						<li><a href="capital.html" class="submenuLink">Capital</a></li>
   						<li><a href="supplies.html" class="submenuLink">Supplies</a></li>
 
