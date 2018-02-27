@@ -15,20 +15,20 @@ var user = firebase.auth().currentUser;
 var no_login = document.getElementsByClassName('no_login');
 console.log(no_login[0]);
 
-var url = {};
-for ( var i = 0; i < no_login.length; i++) {
-	url[i] = no_login[i].attributes[0].nodeValue;
-}
-console.log(url);
+// var url = {};
+// for ( var i = 0; i < no_login.length; i++) {
+// 	url[i] = no_login[i].attributes[0].nodeValue;
+// }
+// console.log(url);
 
 if (user) {
 
   // User is signed in.
 } else {
 	for ( var i = 0; i < no_login.length; i++) {
-		console.log(no_login[i]);
+		// console.log(no_login[i]);
 		
-		no_login[i].attributes[0].nodeValue = '/';
+		// no_login[i].attributes[0].nodeValue = '/';
 	}	// console.log($('.no_login'));
 	// no_login[0].removeAttribute('href');
 	// no_login[0].setAttribute('href','/');
@@ -81,11 +81,11 @@ function _signIn() {
 		var user = result.user;
 		console.log(user);
 		document.getElementById('btnText').textContent = user.displayName;
-		for ( var i = 0; i < no_login.length; i++) {
-			no_login[i].attributes[0].nodeValue = url[i];
-			console.log(no_login[i]);
+		// for ( var i = 0; i < no_login.length; i++) {
+		// 	no_login[i].attributes[0].nodeValue = url[i];
+		// 	console.log(no_login[i]);
 			
-		}
+		// }
 		// ...
 	}).catch(function (error) {
 		// Handle Errors here.

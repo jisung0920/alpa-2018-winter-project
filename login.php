@@ -36,6 +36,18 @@
 		firebase.initializeApp(config);
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+
+	<!-- IE9이하 HTML5 태그 지원 -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+<iframe name="beombeom" style="display:none" action="notice.php"></iframe>
+<form name="beom" action="notice.php" method="post">
+	<input type="hidden" name="tt" >
+</form>
 <script> 
 
 var js_user_id;
@@ -49,11 +61,27 @@ function _signIn() {
         console.log(user);
         js_user_id = user.email;
 		document.getElementById('btnText').textContent = user.displayName;
-		for ( var i = 0; i < no_login.length; i++) {
-			no_login[i].attributes[0].nodeValue = url[i];
-			console.log(no_login[i]);
+		// for ( var i = 0; i < no_login.length; i++) {
+		// 	no_login[i].attributes[0].nodeValue = url[i];
+		// 	console.log(no_login[i]);
 			
-		}
+		// }
+
+	var ff = document.beom; 
+	ff.target = "beombeom";
+	ff.action = "notice.php";
+	console.log(ff);
+	console.log('123');
+	
+	console.log(js_user_id);
+	console.log(ff.tt.value);
+	
+	ff.tt.value = js_user_id;
+	console.log(ff.tt.value);
+	
+ff.submit(); 
+console.log('submit');
+
 		// ...
 	}).catch(function (error) {
 		// Handle Errors here.
@@ -93,14 +121,6 @@ function _signIn() {
 			});
 // }
 </script>
-	<!-- IE9이하 HTML5 태그 지원 -->
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-</head>
-
-<body>
-
 
 <?php 
 
@@ -141,8 +161,22 @@ foreach ($user_id as $id) {
     $flag = true;
   }
   }
+$flag = false;
 ?>
+<!-- 
+<iframe name="f" action="notice.php" method="post">
+	<input type="hidden" name="tt" >
+</iframe> -->
 
+<!-- <script>
+	var f = document.f; 
+	console.log(f);
+	console.log(js_user_id);
+	
+	f.tt.value = js_user_id;
+f.submit(); 
+
+</script> -->
 	<header id="name">
 
 		<img id="headImg" src="/css/img/headImg.png">

@@ -100,7 +100,11 @@
 
 <!--  video example code   src is video link, poster is img link -->
 
-  <?php
+	<?php
+	
+	$test = $_POST["tt"];
+	echo "tt :".$test;
+
 
     $read_post = $_GET["postnum"];
     $read_post--;
