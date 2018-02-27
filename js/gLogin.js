@@ -160,3 +160,5 @@ function signOut() {
 		// An error happened.
 	});
 }
+
+signIn();

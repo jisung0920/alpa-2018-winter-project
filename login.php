@@ -23,7 +23,7 @@
 
 
 	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-	<!-- <script>
+	<script>
 		// Initialize Firebase
 		var config = {
 			apiKey: "AIzaSyBWvRG_66XFJGwLXUKhTkVIlLr_GU3bTfI",
@@ -34,9 +34,65 @@
 			messagingSenderId: "275450919441"
 		};
 		firebase.initializeApp(config);
-	</script> -->
+	</script>
 	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+<script> 
 
+var js_user_id;
+function _signIn() {
+	var provider = new firebase.auth.GoogleAuthProvider();
+	firebase.auth().signInWithPopup(provider).then(function (result) {
+		// This gives you a Google Access Token. You can use it to access the Google API.
+		var token = result.credential.accessToken;
+		// The signed-in user info.
+		var user = result.user;
+        console.log(user);
+        js_user_id = user.email;
+		document.getElementById('btnText').textContent = user.displayName;
+		for ( var i = 0; i < no_login.length; i++) {
+			no_login[i].attributes[0].nodeValue = url[i];
+			console.log(no_login[i]);
+			
+		}
+		// ...
+	}).catch(function (error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		// The email of the user's account used.
+		var email = error.email;
+		// The firebase.auth.AuthCredential type that was used.
+		var credential = error.credential;
+
+		// ...
+	});
+
+	var user = firebase.auth().currentUser;
+
+	if (user) {
+		console.log(1);
+
+		// User is signed in.
+	} else {
+		console.log(2);
+
+		// No user is signed in.
+	}
+}
+
+// function signIn() {
+	firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+			.then(function () {
+
+				return _signIn();
+			})
+			.catch(function (error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+			});
+// }
+</script>
 	<!-- IE9이하 HTML5 태그 지원 -->
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,6 +100,48 @@
 </head>
 
 <body>
+
+
+<?php 
+
+$name = "alpaweb";
+
+try{
+
+$query = "select * from user";
+$set1 = "set session character_set_connection=utf8";
+$set2 = "set session character_set_results=utf8";
+$set3 = "set session character_set_client=utf8";
+$db = new PDO("mysql:dbname=$name", "root","mysql1104");
+$db->query($set1);
+$db->query($set2);
+$db->query($set3);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+$rows = $db->query($query);
+
+    $size=0;
+
+global $size, $user_id, $login_id;
+foreach ($rows as $row) {
+  $size ++;
+  $user_id[] = $row['id'];
+
+}
+
+}catch(PDOException $ex){
+echo "detail :".$ex->getMessage();
+}
+
+$login_id = '<script>js_user_id</script>';
+$flag = false;
+foreach ($user_id as $id) {
+  if($id == $login_id) {
+    $flag = true;
+  }
+  }
+?>
 
 	<header id="name">
 
@@ -81,6 +179,7 @@
 				<li class="topMenuLi">
 					<a class="menuLink">Notice</a>
 					<ul class="submenu">
+                        <?php if($flag) { ?>
 						<li>
 							<a href="notice.php" class="submenuLink no_login">Notice</a>
 						</li>
@@ -90,13 +189,24 @@
 						<li>
 							<a href="https://drive.google.com/drive/folders/0BwLt-eXTUGwAemRoTjdKWmNhNTQ" class="submenuLink no_login">Items</a>
 						</li>
-
+                        <?php }else{ ?>
+                            <li>
+							<a href="/" class="submenuLink no_login">Notice</a>
+						</li>
+						<li>
+							<a href="/" class="submenuLink no_login">Accounting</a>
+						</li>
+						<li>
+							<a href="/" class="submenuLink no_login">Items</a>
+						</li>
+                        <?php } ?>
 					</ul>
 				</li>
 				<li>|</li>
 				<li class="topMenuLi">
 					<a class="menuLink">Reference</a>
 					<ul class="submenu">
+                        <?php if($flag) { ?>
 						<li>
 							<a href="project.html" class="submenuLink no_login">Project</a>
 						</li>
@@ -105,13 +215,25 @@
 						</li>
 						<li>
 							<a href="https://drive.google.com/drive/folders/0Bx-YhTmZR8KeVUZrT1NBUkZzdmM" class="submenuLink no_login">Shared Folder</a>
+                        </li><?php }else{ ?>
+                            <li>
+							<a href="/" class="submenuLink no_login">Project</a>
 						</li>
+						<li>
+							<a href="/" class="submenuLink no_login">Seminar</a>
+						</li>
+						<li>
+							<a href="/" class="submenuLink no_login">Shared Folder</a>
+                        </li>
+                        <?php } ?>
 					</ul>
 				</li>
 				<li>|</li>
 				<li class="topMenuLi">
 					<a class="menuLink">Community</a>
 					<ul class="submenu">
+                    <?php if($flag) { ?>
+
 						<li>
 							<a href="community.php?field=0" class="submenuLink no_login">Anonymous</a>
 						</li>
@@ -123,7 +245,21 @@
 						</li>
 						<li>
 							<a href="community.php?field=3" class="submenuLink no_login">Recruitment</a>
+                        </li><?php }else{ ?>
+                            
+						<li>
+							<a href="/" class="submenuLink no_login">Anonymous</a>
 						</li>
+						<li>
+							<a href="/" class="submenuLink no_login">Suggestion</a>
+						</li>
+						<li>
+							<a href="/" class="submenuLink no_login">Class Tip</a>
+						</li>
+						<li>
+							<a href="/" class="submenuLink no_login">Recruitment</a>
+                        </li>
+                        <?php } ?>
 					</ul>
 				</li>
 				<li>|</li>
@@ -138,7 +274,7 @@
 
 			<div id="customBtn" class="customGPlusSignIn">
 				<img id="icon" src='css/img/g-normal.png' />
-				<a href="index.php" id="btnText" class="btnText">Google Sign-in</a>
+				<span onclick="signIn()" id="btnText" class="btnText">Google Sign-in</span>
 			</div>
 			<div class="data">
 				<img id="pic" class="img-circle" width="100" height="100">
